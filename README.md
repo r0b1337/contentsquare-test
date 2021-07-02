@@ -1,2 +1,2 @@
 # contentsquare-test
-Technical test for ContentSquare.
+Technical test for [ContentSquare](https://contentsquare.com/).
