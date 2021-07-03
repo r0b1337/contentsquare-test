@@ -37,8 +37,8 @@ const main = (): void => {
         const results = parseInput(lines);
         const mowers = results.map((result: any) => new Mower(result.position, result.direction, result.instructions));
 
-        console.log('grid :>> ', grid);
-        console.log('mowers :>> ', mowers);
+        mowers.forEach((mower: Mower) =>
+            console.log(`${mower.position.x} ${mower.position.y} ${mower.direction}`));
     } catch (err) {
         console.log(err);
     }
