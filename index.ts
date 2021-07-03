@@ -1,3 +1,4 @@
+import Mower from './Mower';
 import IPosition from './IPosition';
 import { Direction } from './types';
 import * as fs from 'fs';
@@ -33,7 +34,8 @@ const main = (): void => {
 
         const input: string = fs.readFileSync(inputFilename, { encoding: 'utf8' });
         const lines = input.split('\n');
-        const { grid, mowers } = parseInput(lines);
+        const results = parseInput(lines);
+        const mowers = results.map((result: any) => new Mower(result.position, result.direction, result.instructions));
 
         console.log('grid :>> ', grid);
         console.log('mowers :>> ', mowers);
