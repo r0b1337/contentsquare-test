@@ -1,0 +1,10 @@
+{
+  "name": "contentsquare-test",
+  "version": "1.0.0",
+  "description": "Technical test for ContentSquare.",
+  "main": "index.js",
+  "repository": "https://github.com/r0b1337/contentsquare-test.git",
+  "author": "r0b1337 <dev@r0b.me>",
+  "license": "MIT",
+  "private": false
+}
