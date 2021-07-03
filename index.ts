@@ -1,4 +1,4 @@
-const fs = require('fs');
+import * as fs from 'fs';
 
 const parseInput = (lines: string[]): any => {
     if (!/^[0-9]+ [0-9]+$/.test(lines[0])) throw 'Invalid grid coordinates';
