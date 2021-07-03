@@ -3,8 +3,10 @@ import * as fs from 'fs';
 const parseInput = (lines: string[]): any => {
     if (!/^[0-9]+ [0-9]+$/.test(lines[0])) throw 'Invalid grid coordinates';
 
-    const grid = lines.shift().split(' ').map((n: string) => parseInt(n));
+    const grid = lines.shift().split(' ');
     const mowers: any[] = [];
+
+    global.grid = { x: parseInt(grid[0]), y: parseInt(grid[1]) } ;
 
     lines.forEach((line: string, i: number) => {
         if (i % 2) return;
