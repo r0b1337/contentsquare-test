@@ -1,3 +1,5 @@
+import IPosition from './IPosition';
+import { Direction } from './types';
 import * as fs from 'fs';
 
 const parseInput = (lines: string[]): any => {
@@ -12,12 +14,15 @@ const parseInput = (lines: string[]): any => {
         if (i % 2) return;
         if (!/^[0-9]+ [0-9]+ [NEWS]$/.test(line)) throw 'Invalid mower starting coords';
 
+        const positionArray = line.split(' ');
+        const position: IPosition = { x: parseInt(positionArray[0]), y: parseInt(positionArray[1]) };
+        const direction = positionArray[2] as Direction;
         const instructions = [...lines[i + 1]];
 
-        mowers.push({position, instructions});
+        mowers.push({ position, direction, instructions });
     });
 
-    return { grid, mowers };
+    return mowers;
 }
 
 const main = (): void => {
