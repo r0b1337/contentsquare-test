@@ -39,6 +39,8 @@ const main = (): void => {
 
         mowers.forEach((mower: Mower) =>
             console.log(`${mower.position.x} ${mower.position.y} ${mower.direction}`));
+
+        process.exit();
     } catch (err) {
         console.log(err);
     }
