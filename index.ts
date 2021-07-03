@@ -10,8 +10,7 @@ const parseInput = (lines: string[]): any => {
         if (i % 2) return;
         if (!/^[0-9]+ [0-9]+ [NEWS]$/.test(line)) throw 'Invalid mower starting coords';
 
-        const position = line.split(' ');
-        const instructions = lines[i + 1];
+        const instructions = [...lines[i + 1]];
 
         mowers.push({position, instructions});
     });
