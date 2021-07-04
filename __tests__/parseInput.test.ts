@@ -50,4 +50,11 @@ describe('parseInput', () => {
 
         expect(global.grid).toEqual(expected);
     });
+
+    it('should return mowers metadata', () => {
+        const expected = [{ position: { x: 1, y: 2 }, direction: 'N', instructions: [...'LLFRL'] }];
+        const result = parseInput(lines);
+
+        expect(result).toEqual(expected);
+    });
 });
