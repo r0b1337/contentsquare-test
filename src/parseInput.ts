@@ -1,7 +1,7 @@
 import IPosition from './IPosition';
 import { Direction } from './types';
 
-export const parseInput = (lines: string[]): any => {
+export const parseInput = (lines: string[] = []): any => {
     if (!/^[0-9]+ [0-9]+$/.test(lines[0])) throw 'Invalid grid coordinates';
 
     const grid = lines.shift().split(' ');
