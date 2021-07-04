@@ -4,6 +4,7 @@ import { Direction } from "../src/types";
 
 describe('Mower', () => {
     global.grid = { x: 5, y: 5 } as IPosition;
+    console.log = jest.fn();
 
     let position: IPosition;
 
@@ -53,5 +54,11 @@ describe('Mower', () => {
         const mower = new Mower(position, direction, ['F']);
 
         expect(mower.position).toEqual(expected);
+    });
+
+    it('should console.log it\'s state after completing all its instructions', () => {
+        const mower = new Mower(position, 'N', ['LFRFLLFF']);
+
+        expect(console.log).toHaveBeenCalledWith(`${mower.position.x} ${mower.position.y} ${mower.direction}`);
     });
 });
