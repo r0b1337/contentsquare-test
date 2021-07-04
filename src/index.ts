@@ -11,10 +11,8 @@ const main = (): void => {
         const input: string = fs.readFileSync(inputFilename, { encoding: 'utf8' });
         const lines = input.split('\n');
         const results = parseInput(lines);
-        const mowers = results.map((result: any) => new Mower(result.position, result.direction, result.instructions));
 
-        mowers.forEach((mower: Mower) =>
-            console.log(`${mower.position.x} ${mower.position.y} ${mower.direction}`));
+        results.map((result: any) => new Mower(result.position, result.direction, result.instructions));
 
         process.exit();
     } catch (err) {

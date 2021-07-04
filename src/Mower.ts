@@ -14,6 +14,8 @@ export default class Mower {
         this.direction = direction;
 
         instructions.forEach(instruction => this.processInstruction(instruction));
+
+        console.log(`${this.position.x} ${this.position.y} ${this.direction}`);
     }
 
     private processInstruction(instruction: string): void {
