@@ -5,7 +5,9 @@ import { Direction } from "../src/types";
 describe('Mower', () => {
     global.grid = { x: 5, y: 5 } as IPosition;
 
-    const position: IPosition = { x: 0, y: 0 };
+    let position: IPosition;
+
+    beforeEach(() => position = { x: 2, y: 2 });
 
     it.each([['N'], ['E'], ['W'], ['S']])('should turn 90 degree left from %s', (direction: Direction) => {
         const expected = { N: 'W', E: 'N', W: 'S', S: 'E' };
@@ -37,6 +39,18 @@ describe('Mower', () => {
         const starting = expected;
 
         const mower = new Mower(starting, direction, ['F']);
+
+        expect(mower.position).toEqual(expected);
+    });
+
+    it.each([['N'], ['E'], ['W'], ['S']])('should go one cell forward (direction %s)', (direction: Direction) => {
+        const offset = ['N', 'E'].includes(direction) ? 1 : -1;
+        const axis = ['W', 'E'].includes(direction) ? 'x' : 'y';
+        const expected: IPosition = position;
+
+        expected[axis] = expected[axis] + offset;
+
+        const mower = new Mower(position, direction, ['F']);
 
         expect(mower.position).toEqual(expected);
     });
