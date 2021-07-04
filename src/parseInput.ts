@@ -16,6 +16,9 @@ export const parseInput = (lines: string[] = []): any => {
 
         const positionArray = line.split(' ');
         const position: IPosition = { x: parseInt(positionArray[0]), y: parseInt(positionArray[1]) };
+
+        if (position.x > global.grid.x || position.y > global.grid.y) throw 'A mower cannot be placed out of the lawn';
+
         const direction = positionArray[2] as Direction;
         const next = lines[i + 1];
 
