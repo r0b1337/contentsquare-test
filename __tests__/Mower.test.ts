@@ -14,4 +14,12 @@ describe('Mower', () => {
 
         expect(mower.direction).toBe(expected[direction]);
     });
+
+    it.each([['N'], ['E'], ['W'], ['S']])('should turn 90 degree right from %s', (direction: Direction) => {
+        const expected = { N: 'E', E: 'S', W: 'N', S: 'W' };
+
+        const mower = new Mower(position, direction, ['R']);
+
+        expect(mower.direction).toBe(expected[direction]);
+    });
 });
