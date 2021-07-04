@@ -20,6 +20,7 @@ export const parseInput = (lines: string[] = []): any => {
         const next = lines[i + 1];
 
         if (!next) throw 'A mower is lacking of instructions';
+        if (!/^[LRF]+$/.test(next)) throw `Instructions '${next}' are invalid`;
 
         const instructions = [...next];
 
