@@ -1,5 +1,20 @@
 # contentsquare-test
 Technical test for [ContentSquare](https://contentsquare.com/).
+
+# Usage
+Install dependencies:
+```shell
+$ yarn
+```
+Run program:
+```shell
+$ yarn start <file>
+```
+Run test suits:
+```shell
+$ yarn jest
+```
+
 # Cheatsheet
 We're building an algorithm to pilot lawn mowers in a **rectangular** surface (represented as a **grid**) with [**TypeScript**](https://www.typescriptlang.org/).
 
