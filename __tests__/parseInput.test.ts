@@ -18,4 +18,8 @@ describe('parseInput', () => {
     ])('should throw \'Invalid mower starting coords\' -- %j', (input: string[]) => {
         expect(() => parseInput(['5 5', ...input])).toThrow('Invalid mower starting coords');
     });
+
+    it('should throw \'Please fill at least one mower\'', () => {
+        expect(() => parseInput(['5 5'])).toThrow('Please fill at least one mower');
+    });
 });
