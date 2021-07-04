@@ -3,6 +3,7 @@ import { Direction } from './types';
 
 export const parseInput = (lines: string[] = []): any => {
     if (!/^[0-9]+ [0-9]+$/.test(lines[0])) throw 'Invalid grid coordinates';
+    if (lines.length === 1) throw 'Please fill at least one mower';
 
     const grid = lines.shift().split(' ');
     const mowers: any[] = [];
