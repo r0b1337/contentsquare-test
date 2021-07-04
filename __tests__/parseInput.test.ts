@@ -1,6 +1,10 @@
 import { parseInput } from "../src/parseInput";
 
 describe('parseInput', () => {
+    let lines: string[];
+
+    beforeEach(() => lines = ['5 5', '1 2 N', 'LLFRL']);
+
     it.each([
         [[]],
         [['A 0']],
@@ -37,5 +41,13 @@ describe('parseInput', () => {
         [['FLLFRA']],
     ])('should throw \'Instructions %j are invalid\'', (input: string[]) => {
         expect(() => parseInput(['5 5', '1 2 N', ...input])).toThrow(`Instructions '${input}' are invalid`);
+    });
+
+    it('should have defined global.grid', () => {
+        const expected = { x: 5, y: 5 };
+
+        parseInput(lines);
+
+        expect(global.grid).toEqual(expected);
     });
 });
