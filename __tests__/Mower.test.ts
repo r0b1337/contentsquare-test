@@ -22,4 +22,22 @@ describe('Mower', () => {
 
         expect(mower.direction).toBe(expected[direction]);
     });
+
+    it.each([['N'], ['E']])('should skip forward instruction (direction %s)', (direction: Direction) => {
+        const expected: IPosition = { x: 5, y: 5 };
+        const starting = expected;
+
+        const mower = new Mower(starting, direction, ['F']);
+
+        expect(mower.position).toEqual(expected);
+    });
+
+    it.each([['W'], ['S']])('should skip forward instruction (direction %s)', (direction: Direction) => {
+        const expected: IPosition = { x: 0, y: 0 };
+        const starting = expected;
+
+        const mower = new Mower(starting, direction, ['F']);
+
+        expect(mower.position).toEqual(expected);
+    });
 });
