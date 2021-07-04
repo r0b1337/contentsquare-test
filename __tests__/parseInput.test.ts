@@ -26,4 +26,8 @@ describe('parseInput', () => {
     it('should throw \'A mower is lacking of instructions\'', () => {
         expect(() => parseInput(['5 5', '1 1 N'])).toThrow('A mower is lacking of instructions');
     });
+
+    it('should throw \'A mower cannot be placed out of the lawn\'', () => {
+        expect(() => parseInput(['5 5', '6 6 N'])).toThrow('A mower cannot be placed out of the lawn');
+    });
 });
