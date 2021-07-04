@@ -22,4 +22,8 @@ describe('parseInput', () => {
     it('should throw \'Please fill at least one mower\'', () => {
         expect(() => parseInput(['5 5'])).toThrow('Please fill at least one mower');
     });
+
+    it('should throw \'A mower is lacking of instructions\'', () => {
+        expect(() => parseInput(['5 5', '1 1 N'])).toThrow('A mower is lacking of instructions');
+    });
 });
