@@ -30,4 +30,12 @@ describe('parseInput', () => {
     it('should throw \'A mower cannot be placed out of the lawn\'', () => {
         expect(() => parseInput(['5 5', '6 6 N'])).toThrow('A mower cannot be placed out of the lawn');
     });
+
+    it.each([
+        [[' LFRFFF   ']],
+        [['fflfr']],
+        [['FLLFRA']],
+    ])('should throw \'Instructions %j are invalid\'', (input: string[]) => {
+        expect(() => parseInput(['5 5', '1 2 N', ...input])).toThrow(`Instructions '${input}' are invalid`);
+    });
 });
