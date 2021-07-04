@@ -17,7 +17,11 @@ export const parseInput = (lines: string[] = []): any => {
         const positionArray = line.split(' ');
         const position: IPosition = { x: parseInt(positionArray[0]), y: parseInt(positionArray[1]) };
         const direction = positionArray[2] as Direction;
-        const instructions = [...lines[i + 1]];
+        const next = lines[i + 1];
+
+        if (!next) throw 'A mower is lacking of instructions';
+
+        const instructions = [...next];
 
         mowers.push({ position, direction, instructions });
     });
