@@ -19,7 +19,7 @@ $ yarn jest
 We're building an algorithm to pilot lawn mowers in a **rectangular** surface (represented as a **grid**) with [**TypeScript**](https://www.typescriptlang.org/).
 
 Each mower can be represented by
-- a two-dimensional **position** of **type** `[x: number, y:number]`
+- a two-dimensional **position** of **type** `{ x: number, y:number }`
 - an **orientation** of **type** `'N' | 'E' | 'W' | 'S'` that is a **cardinal direction**
 
 The mowers are driven by **instructions** from an input file like this :
